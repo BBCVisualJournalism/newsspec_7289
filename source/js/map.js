@@ -1,21 +1,15 @@
-define(['lib/news_special/bootstrap', 'istats', 'settings', 'utils', 'lib/vendors/d3-3.4.3', 'lib/vendors/topojson-1.5.2', 'maps/european'], function (news, istats, settings, utils, d3, topojson, data) {
+define(['lib/news_special/bootstrap', 'istats', 'utils', 'lib/vendors/d3-3.4.3', 'lib/vendors/topojson-1.6.0', 'maps/european', 'data/wdwtwa'], function (news, istats, utils, d3, topojson, map, data) {
 
 	var svg,
 		g;
 
 	var init = function () {
-		mapPath = d3.geo.path().projection(d3.geo.mercator()
-					.scale(1700)
-					.center([-1, 57])
-					//.translate([0, 900])
-					);
-
 		d3.select('.map-container')
 			.append('svg')
 			.attr({
 				'id' : 'map',
-				'width' : settings.width['main'],
-				'height' : settings.height['main']
+				'width' : 250,
+				'height' : 900
 			});
 
 		svg = d3.select('svg#map');
@@ -23,52 +17,85 @@ define(['lib/news_special/bootstrap', 'istats', 'settings', 'utils', 'lib/vendor
 		drawMap('european');
 	};
 
-	var getTopoFeatures = function (map) {
-		var mapPointer = settings.maps[map];
-
-		return topojson.feature(mapPointer, mapPointer.objects.boundaries);
+	var getMapPath = function (xTranslation) {
+		return d3.geo.path().projection(d3.geo.mercator().scale(1000).translate([xTranslation, 1350]));
 	};
 
-	var drawMap = function (map) {
-		var topo = getTopoFeatures(map);
+	var getTopoFeatures = function () {
+		return topojson.feature(map, map.objects.boundaries);
+	};
 
-		svg.append('g').attr('id', map)
+	var appendG = function(xTranslation) {
+		var topo = getTopoFeatures();
+
+		svg.append('g').attr('id', xTranslation)
 			.selectAll('path')
 			.data(topo.features)
 			.enter().append('path')
 			.attr({
-				'd' : mapPath,
-				'data-id' : function (e) {
-					return e.properties.PCON12CD;
-				},
+				'd' : getMapPath(xTranslation),
 				'class' : function (e) {
-					var d = 'normal';
+					var nm = data[e.properties.ID].neighbourhoodnetdif;
+						d = 'area ' + e.properties.ID + ' ' + applyScaleClass(nm);
 
 					return d;
-				},
-				'fill' : function (e) {
-					return "#44aaee"
 				}
 			})
 			.on({
-				'click' : function (e, map) {
+				'click' : function (e) {
 
 				},
-				'mousemove' : function (e) {
-					d3.select(this).style("fill", "#5522aa")
+				'mouseover' : function (e) {
+					svg.selectAll('.' + e.properties.ID).classed({
+						'highlighted' : true
+					});
+					d3.select(this).classed({
+						'highlighted' : true
+					});
+
+					console.log(data[e.properties.ID]);
 				},
 				'mouseout' : function (e) {
-					d3.select(this).style("fill", "#44aaee")
+					svg.selectAll('.' + e.properties.ID).classed({
+						'highlighted' : false
+					});
+					d3.select(this).classed({
+						'highlighted' : false
+					});
 				}
 			});
+	};
+
+	var drawMap = function () {
+		appendG(170);
+		//appendG(400);
+		//appendG(600);
 
 		utils.exitLoadingMode();
 	};
 
-	var zoomCallback = function (state) {
-		var g = d3.select('g');
+	var applyScaleClass = function (percentage) {
+		var a;
 
-		setTimeout(function () { g.classed({'open' : state}); }, 300);
+		if (percentage > 15) {
+		a = 'c0';
+		} else if (percentage > 11 && percentage <= 15) {
+		a = 'c1';
+		} else if (percentage > 6 && percentage <= 11) {
+		a = 'c2';
+		} else if (percentage > 0 && percentage <= 6) {
+		a = 'c3';
+		} else if (percentage < 0 && percentage >= -6) {
+		a = 'c4';
+		} else if (percentage < -6 && percentage >= -11) {
+		a = 'c5';
+		} else if (percentage < -11 && percentage >= -15) {
+		a = 'c6';
+		} else if (percentage < -15) {
+		a = 'c7';
+		}
+
+		return a;
 	};
 
     return {

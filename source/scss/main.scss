@@ -2,6 +2,68 @@ $anchor-active: #f00;
 
 @import "news_special/defaults";
 
+.main {
+	width: 624px;
+}
+.map-container {
+	float:left;
+}
+.bar-chart-container {
+	float: right;
+	width: 100%;
+	max-width: 374px;
+	font-size: .9em;
+	margin-top: 50px;
+	.name {
+		width: 110px;
+		display: inline-block;
+		padding-right: 130px;
+	}
+	.bar-wrapper {
+		.bar {
+			display: inline-block;
+			height: 10px;
+		}
+		.percentage {
+			margin-left: 5px;
+		}
+	}
+}
 .main img {
 	width: 100%;
+}
+.area {
+	fill: #ccc;
+}
+.c0 {
+	fill: #fadc1e;
+	background-color: #fadc1e;
+}
+.c1 {
+	fill: #fbe459;
+	background-color: #fbe459;
+}
+.c2 {
+	fill: #fcee90;
+	background-color: #fcee90;
+}
+.c3 {
+	fill: #fef5c8;
+	background-color: #fef5c8;
+}
+.c4 {
+	fill: #c5d0d9;
+	background-color: #c5d0d9;
+}
+.c5 {
+	fill: #8ba0b2;
+	background-color: #8ba0b2;
+}
+.c6 {
+	fill: #51728c;
+	background-color: #51728c;
+}
+.c7 {
+	fill: #144466;
+	background-color: #144466;
 }

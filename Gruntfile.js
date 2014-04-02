@@ -7,7 +7,7 @@
 // default value is 'local'
 // *************************************************************************
 
-var debug = false;
+var debug = true;
 var whichEnv = 'local';
 
 // *************************************************************************
@@ -409,6 +409,18 @@ module.exports = function (grunt) {
                     keepalive: true
                 }
             }
+        },
+        assemble: {
+			options: {
+				flatten: true,
+				data: ['source/js/data/wdwtwa.js'],
+				helpers: ['source/tmpl/handlebars/helpers.js']
+			},
+			tables: {
+				files: {
+					'source/tmpl/includes/': ['source/tmpl/handlebars/**/*.hbs']
+				}
+			}
         }
     });
 
@@ -426,6 +438,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-multi-lang-site-generator');
     grunt.loadNpmTasks('grunt-cloudfile-to-vocab');
     grunt.loadNpmTasks('grunt-contrib-csslint');
+    grunt.loadNpmTasks('assemble');
 
     grunt.registerTask('default',     ['clean:allJs', 'add_environment_data', 'jshint', 'css', /*'jasmine',*/ 'requirejs', 'uglify', 'multi_lang_site_generator:default', 'copy:jsAll', 'copy:cssFurniture', 'clean:main']);
     grunt.registerTask('html',        ['add_environment_data', 'sass:inline', 'uglify', 'multi_lang_site_generator:default', 'clean:main']);
@@ -439,6 +452,7 @@ module.exports = function (grunt) {
     grunt.registerTask('css',         ['sass:main', 'sass:inline', 'csslint']);
     grunt.registerTask('stage',       ['project_checklist',               'add_environment_data', 'prepDeploy', 'replace:prepStageDeploy', 'copy:stageDeploy', 'clean:main']);
     grunt.registerTask('live',        ['project_checklist', 'checkStage', 'add_environment_data', 'prepDeploy', 'replace:prepLiveDeploy',  'copy:liveDeploy',  'clean:main']);
+	grunt.registerTask('compile',    ['assemble']);
     grunt.registerTask('server',      ['connect']);
     grunt.registerTask('translate',   ['add_environment_data', 'default', 'sass:inline', 'uglify', 'multi_lang_site_generator:build_all_other_sites', 'clean:main', 'copy_source']);
     grunt.registerTask('make_vocabs', ['add_environment_data', 'cloudfile_to_vocab']);
