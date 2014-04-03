@@ -1,0 +1,19 @@
+{{#each wdwtwa}}
+
+<div>
+	<span class="name">
+		{{#if @first}}
+			<strong>{{this.name}}</strong>
+		{{else}}
+			{{this.name}}
+		{{/if}}
+	</span>
+	<span class="bar-wrapper">
+		<span class="bar {{applyScaleClass this.countrynetdif}}" style="width:{{createBar this.countrynetdif}}px;margin-left:{{createMargin this.countrynetdif}}px"></span>
+		<span class="percentage" style="margin-left:{{createNumberMargin this.countrynetdif}}px">{{this.countrynetdif}}</span>
+	</span>
+</div>
+
+{{/each}}
+
+{{log pages}}

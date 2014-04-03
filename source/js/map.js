@@ -1,4 +1,4 @@
-define(['lib/news_special/bootstrap', 'istats', 'utils', 'lib/vendors/d3-3.4.3', 'lib/vendors/topojson-1.6.0', 'maps/european', 'data/wdwtwa'], function (news, istats, utils, d3, topojson, map, data) {
+define(['lib/news_special/bootstrap', 'istats', 'utils', 'lib/vendors/d3-3.4.3', 'lib/vendors/topojson-1.6.0', 'maps/european', 'data/wdwtwa_module'], function (news, istats, utils, d3, topojson, map, data) {
 
 	var svg,
 		g;
@@ -8,7 +8,7 @@ define(['lib/news_special/bootstrap', 'istats', 'utils', 'lib/vendors/d3-3.4.3',
 			.append('svg')
 			.attr({
 				'id' : 'map',
-				'width' : 250,
+				'width' : 230,
 				'height' : 900
 			});
 
@@ -35,7 +35,8 @@ define(['lib/news_special/bootstrap', 'istats', 'utils', 'lib/vendors/d3-3.4.3',
 			.attr({
 				'd' : getMapPath(xTranslation),
 				'class' : function (e) {
-					var nm = data[e.properties.ID].neighbourhoodnetdif;
+					var graph = news.$('.main').attr('data-node'),
+						nm = data[e.properties.ID][graph],
 						d = 'area ' + e.properties.ID + ' ' + applyScaleClass(nm);
 
 					return d;
@@ -52,8 +53,6 @@ define(['lib/news_special/bootstrap', 'istats', 'utils', 'lib/vendors/d3-3.4.3',
 					d3.select(this).classed({
 						'highlighted' : true
 					});
-
-					console.log(data[e.properties.ID]);
 				},
 				'mouseout' : function (e) {
 					svg.selectAll('.' + e.properties.ID).classed({

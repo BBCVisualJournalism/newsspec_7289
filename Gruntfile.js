@@ -26,9 +26,16 @@ var amdModulePaths = {
 // *************************************************************************
 
 var projectFiles = {
-    'index.html': 'index.html.tmpl',
-    'index.inc':  'index.inc.tmpl',
-    'test.html':  'test.html.tmpl'
+    'index_neighbourhood.html': 'index_neighbourhood.html.tmpl',
+    'index_neighbourhood.inc':  'index_neighbourhood.inc.tmpl',
+    'index_country.html': 'index_country.html.tmpl',
+    'index_country.inc':  'index_country.inc.tmpl',
+    'index_europe.html': 'index_europe.html.tmpl',
+    'index_europe.inc':  'index_europe.inc.tmpl',
+    'index_world.html': 'index_world.html.tmpl',
+    'index_world.inc':  'index_world.inc.tmpl',
+    //'test.html':  'test.html.tmpl',
+    'js/data/wdwtwa_module.js':  'wdwtwa_module.js.tmpl'
 };
 
 // *************************************************************************
@@ -87,7 +94,7 @@ module.exports = function (grunt) {
                 }
             },
             options: {
-                livereload: false
+                livereload: true
             }
         },
         requirejs: {
