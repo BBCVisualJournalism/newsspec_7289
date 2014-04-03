@@ -9,7 +9,7 @@ define(['lib/news_special/bootstrap', 'istats', 'utils', 'lib/vendors/d3-3.4.3',
 			.attr({
 				'id' : 'map',
 				'width' : 230,
-				'height' : 900
+				'height' : 360
 			});
 
 		svg = d3.select('svg#map');
@@ -105,7 +105,7 @@ define(['lib/news_special/bootstrap', 'istats', 'utils', 'lib/vendors/d3-3.4.3',
 			percentage = d[graph],
 			tipText = '<strong>' + name + '</strong><span>' + percentage + ' %</span>',
 			tooltipWidthOffset,
-			tooltipTopOffset = 20,
+			tooltipTopOffset = 40,
 			left,
 			top,
 			mapContainer = document.getElementById('map');

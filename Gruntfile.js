@@ -315,6 +315,7 @@ module.exports = function (grunt) {
                 'unqualified-attributes'        : false,
                 'vendor-prefix'                 : false,
                 'adjoining-classes'             : false,
+                'overqualified-elements'        : false,
                 'force': true
             },
             src: ['./<%= multi_lang_site_generator.default.options.vocabs[0] %>/css/main.css']

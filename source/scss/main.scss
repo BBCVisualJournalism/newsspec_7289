@@ -4,6 +4,32 @@ $anchor-active: #f00;
 
 .main {
 	width: 624px;
+	position: relative;
+}
+.key-container {
+	float:right;
+	width: 394px;
+	color: #505050;
+	h3 {
+		font-size: 16px;
+	}
+	span {
+		font-size: 16px;
+		&.more {
+			float: right;
+		}
+	}
+	.keys {
+		span {
+			width: 10px;
+			height: 10px;
+			display: inline-block;
+			margin-left: 40px;
+			&:first-child {
+				margin-left: 0;
+			}
+		}
+	}
 }
 .map-container {
 	float:left;
@@ -13,7 +39,7 @@ $anchor-active: #f00;
 	width: 100%;
 	max-width: 394px;
 	font-size: .9em;
-	margin-top: 50px;
+	margin-top: 20px;
 	color: #505050;
 	line-height: 20px;
 	.name {
@@ -48,7 +74,7 @@ $anchor-active: #f00;
 }
 .tooltip {
 	min-width: 120px;
-	max-width: 240px;
+	max-width: 200px;
 	min-height: 14px;
 	position: absolute;
 	font: 12px Arial, sans-serif;
@@ -106,4 +132,20 @@ $anchor-active: #f00;
 .c7 {
 	fill: #144466;
 	background-color: #144466;
+}
+
+@include respondMinMax(479px, 767px) {
+	.main {
+		width: 480px;
+		margin: 0 auto;
+	}
+	.bar-chart-container {
+		float: none;
+	}
+	.map-container {
+		float: none;
+	}
+	.key-container {
+		float: none;
+	}
 }
