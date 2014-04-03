@@ -53,6 +53,7 @@ define(['lib/news_special/bootstrap', 'istats', 'utils', 'lib/vendors/d3-3.4.3',
 					d3.select(this).classed({
 						'highlighted' : true
 					});
+					showTooltip(data[e.properties.ID]);
 				},
 				'mouseout' : function (e) {
 					svg.selectAll('.' + e.properties.ID).classed({
@@ -61,6 +62,7 @@ define(['lib/news_special/bootstrap', 'istats', 'utils', 'lib/vendors/d3-3.4.3',
 					d3.select(this).classed({
 						'highlighted' : false
 					});
+					d3.select('#tooltip').style({'display' : 'none'});
 				}
 			});
 	};
@@ -95,6 +97,25 @@ define(['lib/news_special/bootstrap', 'istats', 'utils', 'lib/vendors/d3-3.4.3',
 		}
 
 		return a;
+	};
+
+	var showTooltip = function (d) {
+		var graph = news.$('.main').attr('data-node'),
+			name = d['name'],
+			percentage = d[graph],
+			tipText = '<strong>' + name + '</strong><span>' + percentage + ' %</span>',
+			tooltipWidthOffset,
+			tooltipTopOffset = 20,
+			left,
+			top,
+			mapContainer = document.getElementById('map');
+
+		d3.select('#tooltip').html(tipText);
+		tooltipWidthOffset = parseInt(news.$('#tooltip').outerWidth(), 10) / 2;
+		left = d3.event.pageX - news.$('#map').offset().left - tooltipWidthOffset;
+		if (left < 0) {left = 0; }
+		top = d3.event.pageY - news.$('#map').offset().top + tooltipTopOffset;
+		d3.select('#tooltip').style({'left' : left + 'px', 'top' : top + 'px', 'display' : 'block'});
 	};
 
     return {

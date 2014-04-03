@@ -1,8 +1,11 @@
 <%= include('includes/top.tmpl') %>
 
     <div class="main" data-node="europenetdif">
+    	<div id="tooltip" class="tooltip"></div>
 		<div class="map-container" id="map-container"></div>
 		<div class="bar-chart-container" id="bar-chart-container">
+			<div class="zero">0</div>
+			<div class="faux-line"></div>
 			<%= include('includes/wdwtwa_europe.html') %>
 		</div>
     </div>
