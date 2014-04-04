@@ -35,7 +35,9 @@ var projectFiles = {
     'index_world.html': 'index_world.html.tmpl',
     'index_world.inc':  'index_world.inc.tmpl',
     'wdwtwa_table.html': 'wdwtwa_table.html.tmpl',
+    'wdwtwa_table.inc':  'wdwtwa_table.inc.tmpl',
     'wdwtwa_identity.html': 'wdwtwa_identity.html.tmpl',
+    'wdwtwa_identity.inc':  'wdwtwa_identity.inc.tmpl',
     'wdwtwa_main.inc':  'wdwtwa_main.inc.tmpl',
     //'test.html':  'test.html.tmpl',
     'js/data/wdwtwa_module.js':  'wdwtwa_module.js.tmpl'
@@ -156,7 +158,7 @@ module.exports = function (grunt) {
             },
             stageDeploy: {
                 files: [
-                    {expand: true, cwd: 'tmp', src: ['**'], dest: '/tmp/mounts/inetpub-stage/stage/mcs1/wwwlive/news/special/<%= pkg.year %>/newsspec_<%= pkg.project_number %>'}
+                    {expand: true, cwd: 'tmp', src: ['**'], dest: '/Volumes/wwwlive/news/special/<%= pkg.year %>/newsspec_<%= pkg.project_number %>'}
                 ]
             },
             liveDeploy: {
