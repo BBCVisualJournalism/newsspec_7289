@@ -4,6 +4,32 @@ $anchor-active: #f00;
 
 .main {
 	width: 624px;
+	position: relative;
+}
+.key-container {
+	float:right;
+	width: 394px;
+	color: #505050;
+	h3 {
+		font-size: 16px;
+	}
+	span {
+		font-size: 16px;
+		&.more {
+			float: right;
+		}
+	}
+	.keys {
+		span {
+			width: 10px;
+			height: 10px;
+			display: inline-block;
+			margin-left: 40px;
+			&:first-child {
+				margin-left: 0;
+			}
+		}
+	}
 }
 .map-container {
 	float:left;
@@ -13,9 +39,11 @@ $anchor-active: #f00;
 	width: 100%;
 	max-width: 394px;
 	font-size: .9em;
-	margin-top: 50px;
+	margin-top: 20px;
+	color: #505050;
+	line-height: 20px;
 	.name {
-		width: 110px;
+		width: 125px;
 		display: inline-block;
 		padding-right: 130px;
 	}
@@ -25,8 +53,46 @@ $anchor-active: #f00;
 			height: 10px;
 		}
 		.percentage {
-			margin-left: 5px;
+			width:20px;
+			text-align: left;
+			&.negative {
+				text-align: right;
+			}
 		}
+	}
+	.faux-line {
+		position: absolute;
+		height: 260px;
+		width: 1px;
+		border-left: 1px solid #333;
+		margin-left: 258px;
+	}
+	.zero {
+		margin-left: 255px;
+		margin-bottom: 5px;
+	}
+}
+.tooltip {
+	min-width: 120px;
+	max-width: 200px;
+	min-height: 14px;
+	position: absolute;
+	font: 12px Arial, sans-serif;
+	padding: 5px 12px;
+	border: 1px solid #333;
+	background: #fff;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+	display: none;
+	z-index: 1000;
+	opacity: .86;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	> strong {
+		display: block;
+		font-size: 1.08em;
 	}
 }
 .main img {
@@ -36,20 +102,20 @@ $anchor-active: #f00;
 	fill: #ccc;
 }
 .c0 {
-	fill: #fadc1e;
-	background-color: #fadc1e;
+	fill: #f9bb23;
+	background-color: #f9bb23;
 }
 .c1 {
-	fill: #fbe459;
-	background-color: #fbe459;
+	fill: #f9cb59;
+	background-color: #f9cb59;
 }
 .c2 {
-	fill: #fcee90;
-	background-color: #fcee90;
+	fill: #f9da8e;
+	background-color: #f9da8e;
 }
 .c3 {
-	fill: #fef5c8;
-	background-color: #fef5c8;
+	fill: #f9eac4;
+	background-color: #f9eac4;
 }
 .c4 {
 	fill: #c5d0d9;
@@ -66,4 +132,20 @@ $anchor-active: #f00;
 .c7 {
 	fill: #144466;
 	background-color: #144466;
+}
+
+@include respondMinMax(479px, 767px) {
+	.main {
+		width: 480px;
+		margin: 0 auto;
+	}
+	.bar-chart-container {
+		float: none;
+	}
+	.map-container {
+		float: none;
+	}
+	.key-container {
+		float: none;
+	}
 }

@@ -1,7 +1,18 @@
-
 module.exports.createBar = function (num) {  return Math.abs(num) * 5; };
 module.exports.createMargin = function (num) { if (num < 0) return - (Math.abs(num) * 5); };
-module.exports.createNumberMargin = function (num) { if (num < 0) return - 18 - (Math.abs(num) * 5); };
+module.exports.createNumberMargin = function (num) {
+	if (num < 0) {
+		var digits = num.toString().length,
+			space;
+
+		if (digits === 2) {
+			space = 20;
+		} else if (digits === 3) {
+			space = 28;
+		}
+		return - space - (Math.abs(num) * 5);
+	}
+};
 module.exports.applyScaleClass = function (num) {
 	if (num > 15) {
 		a = 'c0';
@@ -23,3 +34,4 @@ module.exports.applyScaleClass = function (num) {
 
 	return a;
 };
+module.exports.isNegative = function (num) { var s = (num < 0) ? 'negative' : ''; return s; };

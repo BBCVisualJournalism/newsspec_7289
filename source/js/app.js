@@ -14,7 +14,7 @@ define(['lib/news_special/bootstrap', 'lib/news_special/share_tools/controller']
 	};
 
 	var viewportIsWideEnough = function () {
-		return window.innerWidth > 767;
+		return window.innerWidth > 320;
 	};
 
     return {
