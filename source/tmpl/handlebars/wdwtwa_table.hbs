@@ -1,0 +1,19 @@
+<h2 class="country_detail__head">Which country, other than Britain, has values closest to your own?</h2>
+<ul>
+{{#each wdwtwa_table}}
+    <li class="country_detail">
+        <span class="country_detail__index"></span>
+        <span class="country_detail__flag"><img src="{{this.flag}}" class="no-replace" /></span>
+        <span class="country_detail__name">
+            {{#if @first}}
+                <strong>{{this.name}}</strong>
+            {{else}}
+                {{this.name}}
+            {{/if}}
+        </span>
+        <span class="country_detail__measure">
+            {{this.measure}}
+        </span>
+    </li>
+{{/each}}
+</ul>

@@ -420,7 +420,7 @@ module.exports = function (grunt) {
         assemble: {
 			options: {
 				flatten: true,
-				data: ['source/js/data/wdwtwa.js'],
+				data: ['source/js/data/wdwtwa.js', 'source/js/data/wdwtwa_table.js'],
 				helpers: ['source/tmpl/handlebars/helpers.js']
 			},
 			tables: {
