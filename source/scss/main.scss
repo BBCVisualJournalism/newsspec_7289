@@ -5,6 +5,9 @@ $anchor-active: #f00;
 .main {
 	width: 624px;
 	position: relative;
+	&.country_detail {
+		width: 304px;
+	}
 }
 .key-container {
 	float:right;
@@ -95,7 +98,11 @@ $anchor-active: #f00;
 		font-size: 1.08em;
 	}
 }
-
+p {
+	margin-top: 30px;
+	color: #505050;
+	font-size: 14px;
+}
 .area {
 	fill: #ccc;
 }
@@ -147,13 +154,13 @@ $anchor-active: #f00;
 				font-weight: bold;
 			}
 			.country_detail__index {
-				width: 22px;
+				width: 37px;
 				color: #2197b9;
 				font-size: 22px;
 				font-weight: bold;
 				display: inline-block;
 				text-align: right;
-				padding-right: 60px;
+				padding-right: 45px;
 			}
 			.country_detail__flag {
 				width: 85px;
@@ -173,13 +180,58 @@ $anchor-active: #f00;
 			}
 		}
 	}
+}
 
+.identity {
+	h2 {
+		color: #505050;
+		font-size: 19px;
+	}
+	ul {
+		list-style: none;
+		padding: 0;
+		li {
+			margin-bottom: 6px;
+			.head {
+				font-weight: bold;
+			}
+			.id_title {
+				width: 200px;
+				color: #505050;
+				font-size: 16px;
+				display: inline-block;
+				text-align: right;
+				padding-right: 10px;
+			}
+			.id_value__wrapper {
+				width: 410px;
+				display: inline-block;
+				font-size: 12px;
+				.id_value__bar {
+					background-color: #47708f;
+					color: white;
+					display: inline-block;
+					text-align: right;
+					padding: 2px;
+				}
+			}
+		}
+	}
 }
 
 @include respondMinMax(480px, 767px) {
 	.main {
 		width: 480px;
 		margin: 0 auto;
+		&.identity {
+			ul {
+				li {
+					.id_value__wrapper {
+						width: 200px;
+					}
+				}
+			}
+		}
 	}
 	.bar-chart-container {
 		float: none;
@@ -196,6 +248,18 @@ $anchor-active: #f00;
 	.main {
 		width: 100%;
 		margin: 0 auto;
+		&.identity {
+			ul {
+				li {
+					.id_title {
+						width: 40%;
+					}
+					.id_value__wrapper {
+						width: 35%;
+					}
+				}
+			}
+		}
 	}
 	.bar-chart-container {
 		float: none;
