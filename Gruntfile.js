@@ -34,6 +34,8 @@ var projectFiles = {
     'index_europe.inc':  'index_europe.inc.tmpl',
     'index_world.html': 'index_world.html.tmpl',
     'index_world.inc':  'index_world.inc.tmpl',
+    'wdwtwa_table.html': 'wdwtwa_table.html.tmpl',
+    'wdwtwa_table.inc':  'wdwtwa_table.inc.tmpl',
     //'test.html':  'test.html.tmpl',
     'js/data/wdwtwa_module.js':  'wdwtwa_module.js.tmpl'
 };

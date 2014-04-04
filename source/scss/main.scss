@@ -95,9 +95,7 @@ $anchor-active: #f00;
 		font-size: 1.08em;
 	}
 }
-.main img {
-	width: 100%;
-}
+
 .area {
 	fill: #ccc;
 }
@@ -132,6 +130,18 @@ $anchor-active: #f00;
 .c7 {
 	fill: #144466;
 	background-color: #144466;
+}
+
+.country_detail {
+	ul {
+		list-style: none;
+		padding: 0;
+
+		li {
+			margin-bottom: 5px;
+		}
+	}
+
 }
 
 @include respondMinMax(479px, 767px) {
