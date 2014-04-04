@@ -135,7 +135,7 @@ $anchor-active: #f00;
 .country_detail {
 	h2 {
 		color: #505050;
-		font-size: 20px;
+		font-size: 19px;
 	}
 	ul {
 		list-style: none;
@@ -147,11 +147,13 @@ $anchor-active: #f00;
 				font-weight: bold;
 			}
 			.country_detail__index {
-				width: 82px;
+				width: 22px;
 				color: #2197b9;
 				font-size: 22px;
 				font-weight: bold;
 				display: inline-block;
+				text-align: right;
+				padding-right: 60px;
 			}
 			.country_detail__flag {
 				width: 85px;
@@ -174,9 +176,25 @@ $anchor-active: #f00;
 
 }
 
-@include respondMinMax(479px, 767px) {
+@include respondMinMax(480px, 767px) {
 	.main {
 		width: 480px;
+		margin: 0 auto;
+	}
+	.bar-chart-container {
+		float: none;
+	}
+	.map-container {
+		float: none;
+	}
+	.key-container {
+		float: none;
+	}
+}
+
+@include respondMinMax(1px, 479px) {
+	.main {
+		width: 100%;
 		margin: 0 auto;
 	}
 	.bar-chart-container {
