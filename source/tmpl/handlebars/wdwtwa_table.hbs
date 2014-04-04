@@ -1,16 +1,14 @@
+<li>
+    <span class="country_detail__index"></span>
+    <span class="country_detail__flag"></span>
+    <span class="country_detail__name head">Country</span>
+    <span class="country_detail__measure head">%</span>
+</li>
 {{#each wdwtwa_table}}
     <li>
         <span class="country_detail__index">{{this.index}}</span>
         <span class="country_detail__flag"><img src="{{this.flag}}" class="no-replace" width="31" height="17"/></span>
-        <span class="country_detail__name">
-            {{#if @first}}
-                <strong>{{this.name}}</strong>
-            {{else}}
-                {{this.name}}
-            {{/if}}
-        </span>
-        <span class="country_detail__measure">
-            {{this.measure}}
-        </span>
+        <span class="country_detail__name">{{this.name}}</span>
+        <span class="country_detail__measure">{{this.measure}}</span>
     </li>
 {{/each}}
