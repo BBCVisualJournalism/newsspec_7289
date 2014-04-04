@@ -35,7 +35,8 @@ var projectFiles = {
     'index_world.html': 'index_world.html.tmpl',
     'index_world.inc':  'index_world.inc.tmpl',
     'wdwtwa_table.html': 'wdwtwa_table.html.tmpl',
-    'wdwtwa_table.inc':  'wdwtwa_table.inc.tmpl',
+    'wdwtwa_identity.html': 'wdwtwa_identity.html.tmpl',
+    'wdwtwa_main.inc':  'wdwtwa_main.inc.tmpl',
     //'test.html':  'test.html.tmpl',
     'js/data/wdwtwa_module.js':  'wdwtwa_module.js.tmpl'
 };
@@ -424,7 +425,7 @@ module.exports = function (grunt) {
         assemble: {
 			options: {
 				flatten: true,
-				data: ['source/js/data/wdwtwa.js', 'source/js/data/wdwtwa_table.js'],
+				data: ['source/js/data/wdwtwa.js', 'source/js/data/wdwtwa_table.js', 'source/js/data/bar_identity.js'],
 				helpers: ['source/tmpl/handlebars/helpers.js']
 			},
 			tables: {

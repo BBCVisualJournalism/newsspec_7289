@@ -35,3 +35,7 @@ module.exports.applyScaleClass = function (num) {
 	return a;
 };
 module.exports.isNegative = function (num) { var s = (num < 0) ? 'negative' : ''; return s; };
+module.exports.getBarWidth = function (str) {
+	// 44 is the max bar width
+	return (100 * parseInt(str)) / 45;
+}

@@ -1,0 +1,6 @@
+{{#each bar_identity}}
+    <li>
+        <span class="id_title">{{this.title}}</span>
+        <span class="id_value__wrapper"><span class="id_value__bar" style="width: {{getBarWidth this.value}}%">{{this.value}}%</span></span>
+    </li>
+{{/each}}
