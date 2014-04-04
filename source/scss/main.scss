@@ -133,12 +133,42 @@ $anchor-active: #f00;
 }
 
 .country_detail {
+	h2 {
+		color: #505050;
+		font-size: 20px;
+	}
 	ul {
 		list-style: none;
 		padding: 0;
 
 		li {
-			margin-bottom: 5px;
+			margin-bottom: 10px;
+			.head {
+				font-weight: bold;
+			}
+			.country_detail__index {
+				width: 82px;
+				color: #2197b9;
+				font-size: 22px;
+				font-weight: bold;
+				display: inline-block;
+			}
+			.country_detail__flag {
+				width: 85px;
+				display: inline-block;
+				font-size: 16px;
+			}
+			.country_detail__name {
+				width: 162px;
+				display: inline-block;
+				color: #505050;
+				font-size: 16px;
+			}
+			.country_detail__measure {
+				font-weight: bold;
+				color: #505050;
+				font-size: 16px;
+			}
 		}
 	}
 
