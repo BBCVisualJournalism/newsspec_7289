@@ -25,7 +25,7 @@ define(['lib/news_special/bootstrap', 'istats', 'utils', 'lib/vendors/d3-3.4.3',
 		return topojson.feature(map, map.objects.boundaries);
 	};
 
-	var appendG = function(xTranslation) {
+	var appendG = function (xTranslation) {
 		var topo = getTopoFeatures();
 
 		svg.append('g').attr('id', xTranslation)
@@ -76,27 +76,27 @@ define(['lib/news_special/bootstrap', 'istats', 'utils', 'lib/vendors/d3-3.4.3',
 	};
 
 	var applyScaleClass = function (percentage) {
-		var a;
+		var scaleClass;
 
 		if (percentage > 15) {
-		a = 'c0';
+			scaleClass = 'c0';
 		} else if (percentage > 11 && percentage <= 15) {
-		a = 'c1';
+			scaleClass = 'c1';
 		} else if (percentage > 6 && percentage <= 11) {
-		a = 'c2';
+			scaleClass = 'c2';
 		} else if (percentage > 0 && percentage <= 6) {
-		a = 'c3';
+			scaleClass = 'c3';
 		} else if (percentage < 0 && percentage >= -6) {
-		a = 'c4';
+			scaleClass = 'c4';
 		} else if (percentage < -6 && percentage >= -11) {
-		a = 'c5';
+			scaleClass = 'c5';
 		} else if (percentage < -11 && percentage >= -15) {
-		a = 'c6';
+			scaleClass = 'c6';
 		} else if (percentage < -15) {
-		a = 'c7';
+			scaleClass = 'c7';
 		}
 
-		return a;
+		return scaleClass;
 	};
 
 	var showTooltip = function (d) {

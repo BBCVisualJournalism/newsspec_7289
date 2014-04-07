@@ -4,13 +4,13 @@
     "type": "git",
     "url": "http://github.com/BBCVisualJournalism/newsspec_7289"
   },
-  "description": "News Specials project scaffold for deploying bespoke content via an iframe.",
-  "version": "0.1.0",
+  "description": "Thematic maps, bar charts and country tables for 'Who do we think we are?' poll results",
+  "version": "0.1.1",
   "project_number": "7289",
-  "cpsId": "--REPLACEME--",
-  "storyPageUrl": "",
+  "cpsId": "26885743",
+  "storyPageUrl": "http://www.bbc.co.uk/news/uk-26885743",
   "year": "2014",
-  "istatsName": "--REPLACEME--",
+  "istatsName": "news.uk.story.26885743.page.interactive",
   "googleSpreadsheetId": "--REPLACEME--",
   "localhost": "/Users/zannim01/Sites/bbc/",
   "devDependencies": {

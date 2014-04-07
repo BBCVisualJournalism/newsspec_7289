@@ -7,7 +7,7 @@
 // default value is 'local'
 // *************************************************************************
 
-var debug = true;
+var debug = false;
 var whichEnv = 'local';
 
 // *************************************************************************
@@ -454,7 +454,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-csslint');
     grunt.loadNpmTasks('assemble');
 
-    grunt.registerTask('default',     ['clean:allJs', 'add_environment_data', 'jshint', 'css', /*'jasmine',*/ 'requirejs', 'uglify', 'multi_lang_site_generator:default', 'copy:jsAll', 'copy:cssFurniture', 'clean:main']);
+    grunt.registerTask('default',     ['clean:allJs', 'add_environment_data', 'compile', 'jshint', 'css', 'jasmine', 'requirejs', 'uglify', 'multi_lang_site_generator:default', 'copy:jsAll', 'copy:cssFurniture', 'clean:main']);
     grunt.registerTask('html',        ['add_environment_data', 'sass:inline', 'uglify', 'multi_lang_site_generator:default', 'clean:main']);
     grunt.registerTask('js',          ['jshint', 'jasmine', 'requirejs', 'copy:jsAll']);
     grunt.registerTask('test',        ['jasmine']);
